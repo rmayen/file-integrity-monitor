@@ -1,0 +1,14 @@
+{
+  "name": "file-integrity-monitor",
+  "version": "1.0.0",
+  "description": "A defensive file integrity monitoring CLI that creates and verifies SHA-256 baselines.",
+  "main": "src/cli.js",
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test"
+  },
+  "keywords": ["security", "sha256", "integrity", "monitoring", "nodejs"],
+  "author": "Rene Mayen",
+  "license": "MIT",
+  "engines": { "node": ">=20" }
+}
