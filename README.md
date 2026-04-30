@@ -17,11 +17,18 @@ File integrity monitoring is a basic security control used to detect unexpected 
 ## Usage
 
 ```bash
-npm install
 npm test
 node src/cli.js baseline ./example baseline.json
 node src/cli.js verify ./example baseline.json
 ```
+
+The tool uses only Node's standard library — no `npm install` is required.
+
+## What Counts as a Change
+
+A file is reported as `changed` when its SHA-256 hash or its size differs from the baseline. `added` files are present now but not in the baseline; `removed` files are in the baseline but missing now. `.git` and `node_modules` are skipped during scanning.
+
+The `verify` command exits with code `0` if everything matches and `2` otherwise, so it can be used in scripts and CI checks.
 
 ## Output Example
 
