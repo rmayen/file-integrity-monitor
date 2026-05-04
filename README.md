@@ -50,3 +50,11 @@ src/
 test/
   integrity.test.js
 ```
+
+## My Role
+
+Solo developer. Designed the baseline-and-verify workflow, implemented the recursive scanner and SHA-256 hashing layer in `src/integrity.js`, built the CLI in `src/cli.js`, and wrote the unit tests in `test/integrity.test.js`. The project intentionally uses only Node's standard library to keep the supply-chain surface minimal.
+
+## What I Learned
+
+The hardest part was deciding what should count as a "change." Hashing alone catches content edits, but I added a size check so the report can distinguish quickly. I also learned to think about this tool from a defender's point of view — the JSON report needs to be machine-readable (for CI / scripting) but the exit codes need to be unambiguous so a build can fail on tampering. Building it with zero npm dependencies was a deliberate choice: a security tool that pulls in a tree of third-party packages defeats its own purpose.
